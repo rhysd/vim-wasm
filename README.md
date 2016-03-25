@@ -9,7 +9,7 @@ This Vim plugin provides a [WebAssembly](https://github.com/WebAssembly/design) 
 Copy all directories into your `~/.vim` directory or use your favorite plugin manager to install.
 This plugin automatically detects `*.wast` files.
 
-| `set filetype=lisp` | `set filetype=wast` |
+| `set filetype=wast` | `set filetype=lisp` |
 |---------------------|---------------------|
 | <img width="515" alt="wast" src="https://raw.githubusercontent.com/rhysd/ss/master/vim-wast/wast.png"> | <img width="515" alt="wast" src="https://raw.githubusercontent.com/rhysd/ss/master/vim-wast/lisp.png"> |
 
