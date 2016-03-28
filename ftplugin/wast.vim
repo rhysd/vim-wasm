@@ -1,9 +1,9 @@
 if exists("b:did_ftplugin")
-  finish
+    finish
 endif
 
 setl comments=:;
-setl define=^\\s*(func\\k*
+setl define=^\\s*(\\%(func\\|module\\)\\s\\+
 setl formatoptions-=t
 setl lisp
 setl commentstring=;%s
