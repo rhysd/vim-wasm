@@ -5,8 +5,8 @@ endif
 syn cluster wastCluster       contains=wastModuleKeyword,wastInst,wastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList
 syn keyword wastModuleKeyword module export func contained
 syn match   wastInst          "\%((\s*\)\@<=\<[[:alnum:]_.]\+\>" contained display
-syn match   wastNamedVar      "$\@<!$[^$][^[:space:])]*" contained display
-syn match   wastUnnamedVar    "$$\d\+" contained display
+syn match   wastNamedVar      "$\+[^$][^[:space:])]*" contained display
+syn match   wastUnnamedVar    "$\+\d\+" contained display
 syn region  wastString        start=+"+ skip=+\\\\\|\\"+ end=+"+
 syn match   wastFloat         "-\=\d\+\.\d*\(e[-+]\=\d\+\)\=[fl]\=" display contained
 syn match   wastFloat         "-\=\.\d\+\(e[-+]\=\d\+\)\=[fl]\=\>" display contained
