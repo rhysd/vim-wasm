@@ -14,7 +14,8 @@ syn match   wastFloat         "-\=\d\+e[-+]\=\d\+[fl]\=\>" display contained
 syn match   wastNumber        "\<-\=\d\+\>" display contained
 syn match   wastNumber        "\<-\=0x\x\+\>" display contained
 syn match   wastNumber        "\<-\=0o\o\+\>" display contained
-syn region  wastComment       start=";" end="\%($\|;\)" display
+syn region  wastComment       start=";;" end="$" display
+syn region  wastComment       start=";;\@!" end=";" display
 syn region  wastList          matchgroup=wastListDelimiter start="(" matchgroup=wastListDelimiter end=")" contains=@wastCluster
 
 syn sync lines=100
