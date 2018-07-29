@@ -5,7 +5,7 @@ WebAssembly Text Format Syntax Support for Vim
 This filetype plugin defines highlights based on [WebAssembly text format spec][].
 
 [vim-wasm]: https://github.com/rhysd/vim-wasm
-[WebAssembly]: https://github.com/WebAssembly/design
+[WebAssembly]: https://webassembly.org/
 [WebAssembly text format spec]: https://webassembly.github.io/spec/core/text/index.html
 
 
