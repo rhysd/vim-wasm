@@ -3,7 +3,7 @@ if exists("b:current_syntax")
 endif
 
 syn cluster wastCluster       contains=wastModuleKeyword,wastInst,wastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList,wastType
-syn keyword wastModuleKeyword module export func contained
+syn keyword wastModuleKeyword module export contained
 
 syn match   wastInst          "\%((\s*\)\@<=\<[[:alnum:]_.]\+\>" contained display
 
@@ -28,7 +28,7 @@ syn region  wastComment       start=";;" end="$" display
 syn region  wastComment       start="(;;\@!" end=";)"
 
 syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgroup=wastListDelimiter end=";\@<!)" contains=@wastCluster
-syn keyword wastType          i64 i32 i16 i8 i1 f64 f32 contained
+syn keyword wastType          i64 i32 f64 f32 contained
 
 syn sync lines=100
 
