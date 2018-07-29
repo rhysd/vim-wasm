@@ -9,6 +9,8 @@ syn match   wastNamedVar      "$\+[^$][^[:space:])]*" contained display
 syn match   wastUnnamedVar    "$\+\d\+" contained display
 syn region  wastString        start=+"+ skip=+\\\\\|\\"+ end=+"+
 syn match   wastFloat         "\<-\=\d\+\%(\.\d\+\)\=\%([eE][-+]\=\d\+\)\=" display contained
+syn match   wastFloat         "\<-\=0x\x\+\%(\.\x\+\)\=\%([pP][-+]\=\d\+\)\=" display contained
+syn keyword wastFloat         inf nan contained
 syn match   wastNumber        "\<-\=\d\+\>" display contained
 syn match   wastNumber        "\<-\=0x\x\+\>" display contained
 syn region  wastComment       start=";;" end="$" display
