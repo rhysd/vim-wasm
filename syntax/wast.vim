@@ -24,11 +24,14 @@ syn keyword wastFloat         inf nan contained
 syn match   wastNumber        "\<-\=\d\%(_\=\d\)*\>" display contained
 syn match   wastNumber        "\<-\=0x\x\%(_\=\x\)*\>" display contained
 
+" https://webassembly.github.io/spec/core/text/lexical.html#comments
 syn region  wastComment       start=";;" end="$" display
 syn region  wastComment       start="(;;\@!" end=";)"
 
 syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgroup=wastListDelimiter end=";\@<!)" contains=@wastCluster
-syn keyword wastType          i64 i32 f64 f32 contained
+
+" https://webassembly.github.io/spec/core/text/types.html
+syn keyword wastType          i64 i32 f64 f32 func param result anyfunc mut contained
 
 syn sync lines=100
 
