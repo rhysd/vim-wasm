@@ -15,8 +15,8 @@ syn match   wastNumber        "\<-\=\d\+\>" display contained
 syn match   wastNumber        "\<-\=0x\x\+\>" display contained
 syn match   wastNumber        "\<-\=0o\o\+\>" display contained
 syn region  wastComment       start=";;" end="$" display
-syn region  wastComment       start=";;\@!" end=";" display
-syn region  wastList          matchgroup=wastListDelimiter start="(" matchgroup=wastListDelimiter end=")" contains=@wastCluster
+syn region  wastComment       start="(;;\@!" end=";)"
+syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgroup=wastListDelimiter end=";\@<!)" contains=@wastCluster
 syn keyword wastType          i64 i32 i16 i8 i1 f64 f32 contained
 
 syn sync lines=100
