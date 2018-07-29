@@ -5,7 +5,8 @@ endif
 syn cluster wastCluster       contains=wastModuleKeyword,wastInst,wastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList,wastType
 syn keyword wastModuleKeyword module export contained
 
-syn match   wastInst          "\%((\s*\)\@<=\<[[:alnum:]_.]\+\>" contained display
+" https://webassembly.github.io/spec/core/text/instructions.html
+syn match   wastInst          "\%((\s*\)\@<=\<\%(\%(i32\|i64\|f32\|f64\|memory\)\.\)\=[[:alnum:]_]\+\>\%(\s\+\%(align\|offset\)=\)\=" contained display
 
 " https://webassembly.github.io/spec/core/text/values.html#text-id
 syn match   wastNamedVar      "$\+[[:alnum:]!#$%&'∗./:=><?@\\^_`~+-]*" contained display
