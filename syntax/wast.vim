@@ -1,5 +1,5 @@
 if exists("b:current_syntax")
-  finish
+    finish
 endif
 
 syn cluster wastCluster       contains=wastModuleKeyword,wastInst,wastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList,wastType
@@ -8,12 +8,9 @@ syn match   wastInst          "\%((\s*\)\@<=\<[[:alnum:]_.]\+\>" contained displ
 syn match   wastNamedVar      "$\+[^$][^[:space:])]*" contained display
 syn match   wastUnnamedVar    "$\+\d\+" contained display
 syn region  wastString        start=+"+ skip=+\\\\\|\\"+ end=+"+
-syn match   wastFloat         "-\=\d\+\.\d*\(e[-+]\=\d\+\)\=[fl]\=" display contained
-syn match   wastFloat         "-\=\.\d\+\(e[-+]\=\d\+\)\=[fl]\=\>" display contained
-syn match   wastFloat         "-\=\d\+e[-+]\=\d\+[fl]\=\>" display contained
+syn match   wastFloat         "\<-\=\d\+\%(\.\d\+\)\=\%([eE][-+]\=\d\+\)\=" display contained
 syn match   wastNumber        "\<-\=\d\+\>" display contained
 syn match   wastNumber        "\<-\=0x\x\+\>" display contained
-syn match   wastNumber        "\<-\=0o\o\+\>" display contained
 syn region  wastComment       start=";;" end="$" display
 syn region  wastComment       start="(;;\@!" end=";)"
 syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgroup=wastListDelimiter end=";\@<!)" contains=@wastCluster
