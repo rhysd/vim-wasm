@@ -1,3 +1,9 @@
+" Vim syntax file
+" Language:     WebAssembly
+" Maintainer:   rhysd <lin90162@yahoo.co.jp>
+" Last Change:  Jul 29, 2018
+" For bugs, patches and license go to https://github.com/rhysd/vim-wasm
+
 if exists("b:current_syntax")
     finish
 endif
