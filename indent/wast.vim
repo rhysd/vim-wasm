@@ -3,11 +3,8 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
-setlocal comments=s:(;,e:;),:;;
-setlocal commentstring=(;%s;)
-setlocal formatoptions-=t
-
 " WebAssembly text format is S-expression. We can reuse LISP indentation
 setlocal lisp
+setlocal indentexpr=
 
-let b:undo_indent = "setl comments< commentstring< formatoptions< lisp<"
+let b:undo_indent = "setl lisp< indentexpr<"
