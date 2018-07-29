@@ -13,12 +13,12 @@ syn cluster wastCluster       contains=wastModule,wastInstPrefix,wastInstName,wa
 " Instructions
 " https://webassembly.github.io/spec/core/text/instructions.html
 syn match   wastInstPrefix    "\%((\s*\)\@<=\<\%(i32\|i64\|f32\|f64\|memory\)\." nextgroup=wastInstName contained display
-syn match   wastInstName      "[[:alnum:]_]\+\>\%(/\%(i32\|i64\|f32\|f64\)\>\)\=" nextgroup=wastInstAttr   contained display
+syn match   wastInstName      "[[:alnum:]_]\+\%(/\%(i32\|i64\|f32\|f64\)\)\=\>" nextgroup=wastInstAttr contained display
 syn match   wastInstAttr      "\s\+\%(align\|offset\)=" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#control-instructions
-syn match   wastControlInst   "\%((\s*\)\@<=\<\%(block\|end\|loop\|if\|else\|unreachable\|nop\|br\|br_if\|br_table\|return\|call\|call_indirect\)" contained display
+syn match   wastControlInst   "\%((\s*\)\@<=\<\%(block\|end\|loop\|if\|else\|unreachable\|nop\|br\|br_if\|br_table\|return\|call\|call_indirect\)\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#parametric-instructions
-syn match   wastParamInst     "\%((\s*\)\@<=\<\%(drop\|select\)" contained display
+syn match   wastParamInst     "\%((\s*\)\@<=\<\%(drop\|select\)\>" contained display
 
 " Identifiers
 " https://webassembly.github.io/spec/core/text/values.html#text-id
