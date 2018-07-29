@@ -8,13 +8,13 @@ if exists("b:current_syntax")
     finish
 endif
 
-syn cluster wastCluster       contains=wastModule,wastInstPrefix,wastInstName,wastInstAttr,wastParamInst,wastControlInst,wastwastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList,wastType
+syn cluster wastCluster       contains=wastModule,wastInstWithType,wastInstGeneral,wastParamInst,wastControlInst,wastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList,wastType
 
 " Instructions
 " https://webassembly.github.io/spec/core/text/instructions.html
-syn match   wastInstPrefix    "\%((\s*\)\@<=\<\%(i32\|i64\|f32\|f64\|memory\)\." nextgroup=wastInstName contained display
-syn match   wastInstName      "[[:alnum:]_]\+\%(/\%(i32\|i64\|f32\|f64\)\)\=\>" nextgroup=wastInstAttr contained display
-syn match   wastInstAttr      "\s\+\%(align\|offset\)=" contained display
+" Note: memarg (align=,offset=) can be added to memory instructions
+syn match   wastInstWithType  "\%((\s*\)\@<=\<\%(i32\|i64\|f32\|f64\|memory\)\.[[:alnum:]_]\+\%(/\%(i32\|i64\|f32\|f64\)\)\=\>\%(\s\+\%(align\|offset\)=\)\=" contained display
+syn match   wastInstGeneral   "\%((\s*\)\@<=\<[[:alnum:]_]\+\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#control-instructions
 syn match   wastControlInst   "\%((\s*\)\@<=\<\%(block\|end\|loop\|if\|else\|unreachable\|nop\|br\|br_if\|br_table\|return\|call\|call_indirect\)\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#parametric-instructions
@@ -62,8 +62,8 @@ syn sync lines=100
 
 hi def link wastModule        PreProc
 hi def link wastListDelimiter Delimiter
-hi def link wastInstPrefix    Operator
-hi def link wastInstName      Operator
+hi def link wastInstWithType  Operator
+hi def link wastInstGeneral   Operator
 hi def link wastControlInst   Statement
 hi def link wastParamInst     Conditional
 hi def link wastString        String
