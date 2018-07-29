@@ -5,9 +5,15 @@ endif
 syn cluster wastCluster       contains=wastModuleKeyword,wastInst,wastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList,wastType
 syn keyword wastModuleKeyword module export func contained
 syn match   wastInst          "\%((\s*\)\@<=\<[[:alnum:]_.]\+\>" contained display
-syn match   wastNamedVar      "$\+[^$][^[:space:])]*" contained display
-syn match   wastUnnamedVar    "$\+\d\+" contained display
-syn region  wastString        start=+"+ skip=+\\\\\|\\"+ end=+"+
+
+" https://webassembly.github.io/spec/core/text/values.html#text-id
+syn match   wastNamedVar      "$\+[[:alnum:]!#$%&'∗./:=><?@\\^_`~+-]*" contained display
+syn match   wastUnnamedVar    "$\+\d\+[[:alnum:]!#$%&'∗./:=><?@\\^_`~+-]\@!" contained display
+
+" https://webassembly.github.io/spec/core/text/values.html#strings
+syn region  wastString        start=+"+ skip=+\\\\\|\\"+ end=+"+ contained contains=wastStringSpecial
+syn match   wastStringSpecial "\\\x\x\|\\[tnr'\\\"]\|\\u\x\+" contained containedin=wastString
+
 syn match   wastFloat         "\<-\=\d\+\%(\.\d\+\)\=\%([eE][-+]\=\d\+\)\=" display contained
 syn match   wastFloat         "\<-\=0x\x\+\%(\.\x\+\)\=\%([pP][-+]\=\d\+\)\=" display contained
 syn keyword wastFloat         inf nan contained
@@ -24,6 +30,7 @@ hi def link wastModuleKeyword PreProc
 hi def link wastListDelimiter Delimiter
 hi def link wastInst          Statement
 hi def link wastString        String
+hi def link wastStringSpecial Special
 hi def link wastNamedVar      Identifier
 hi def link wastUnnamedVar    PreProc
 hi def link wastFloat         Float
