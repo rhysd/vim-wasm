@@ -61,7 +61,7 @@ syn match   wastType          "\%((\_s*\)\@<=func\%(\_s*[()]\)\@=" display conta
 syn keyword wastModule        module type export import table memory global data elem contained
 syn match   wastModule        "\%((\_s*\)\@<=func\%(\_s\+\$\)\@=" display contained
 
-syn sync lines=100
+syn sync maxlines=100
 
 hi def link wastModule        PreProc
 hi def link wastListDelimiter Delimiter
