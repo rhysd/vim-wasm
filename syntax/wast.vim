@@ -31,7 +31,7 @@ syn match   wastUnnamedVar    "$\+\d\+[[:alnum:]!#$%&'∗./:=><?@\\^_`~+-]\@!" c
 " String literals
 " https://webassembly.github.io/spec/core/text/values.html#strings
 syn region  wastString        start=+"+ skip=+\\\\\|\\"+ end=+"+ contained contains=wastStringSpecial
-syn match   wastStringSpecial "\\\x\x\|\\[tnr'\\\"]\|\\u\x\+" contained containedin=wastString
+syn match   wastStringSpecial "\\\x\x\|\\[tnr'\\\"]\|\\u\x\+" contained containedin=wastString display
 
 " Float literals
 " https://webassembly.github.io/spec/core/text/values.html#floating-point
@@ -46,7 +46,7 @@ syn match   wastNumber        "\<-\=0x\x\%(_\=\x\)*\>" display contained
 
 " Comments
 " https://webassembly.github.io/spec/core/text/lexical.html#comments
-syn region  wastComment       start=";;" end="$" display
+syn region  wastComment       start=";;" end="$"
 syn region  wastComment       start="(;;\@!" end=";)"
 
 syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgroup=wastListDelimiter end=";\@<!)" contains=@wastCluster
