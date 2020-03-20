@@ -11,13 +11,14 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
-syn cluster wastCluster       contains=wastModule,wastInstWithType,wastInstGeneral,wastParamInst,wastControlInst,wastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList,wastType
+syn cluster wastNotTop contains=wastModule,wastInstWithType,wastInstGetSet,wastInstGeneral,wastParamInst,wastControlInst,wastString,wastNamedVar,wastUnnamedVar,wastFloat,wastNumber,wastComment,wastList,wastType
 
 " Instructions
 " https://webassembly.github.io/spec/core/text/instructions.html
 " Note: memarg (align=,offset=) can be added to memory instructions
 syn match   wastInstWithType  "\%((\s*\)\@<=\<\%(i32\|i64\|f32\|f64\|memory\)\.[[:alnum:]_]\+\%(/\%(i32\|i64\|f32\|f64\)\)\=\>\%(\s\+\%(align\|offset\)=\)\=" contained display
 syn match   wastInstGeneral   "\%((\s*\)\@<=\<[[:alnum:]_]\+\>" contained display
+syn match   wastInstGetSet    "\%((\s*\)\@<=\<\%(local\|global\)\.\%(get\|set\)\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#control-instructions
 syn match   wastControlInst   "\%((\s*\)\@<=\<\%(block\|end\|loop\|if\|else\|unreachable\|nop\|br\|br_if\|br_table\|return\|call\|call_indirect\)\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#parametric-instructions
@@ -53,7 +54,7 @@ syn match   wastNumber        "\<-\=0x\x\%(_\=\x\)*\>" display contained
 syn region  wastComment       start=";;" end="$"
 syn region  wastComment       start="(;;\@!" end=";)"
 
-syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgroup=wastListDelimiter end=";\@<!)" contains=@wastCluster
+syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgroup=wastListDelimiter end=";\@<!)" contains=@wastNotTop
 
 " Types
 " https://webassembly.github.io/spec/core/text/types.html
@@ -70,6 +71,7 @@ syn sync maxlines=100
 hi def link wastModule        PreProc
 hi def link wastListDelimiter Delimiter
 hi def link wastInstWithType  Operator
+hi def link wastInstGetSet    Operator
 hi def link wastInstGeneral   Operator
 hi def link wastControlInst   Statement
 hi def link wastParamInst     Conditional
