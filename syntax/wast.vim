@@ -16,13 +16,13 @@ syn cluster wastNotTop contains=wastModule,wastInstWithType,wastInstGetSet,wastI
 " Instructions
 " https://webassembly.github.io/spec/core/text/instructions.html
 " Note: memarg (align=,offset=) can be added to memory instructions
-syn match   wastInstWithType  "\%((\s*\)\zs\<\%(i32\|i64\|f32\|f64\|memory\)\.[[:alnum:]_]\+\%(/\%(i32\|i64\|f32\|f64\)\)\=\>\%(\s\+\%(align\|offset\)=\)\=" contained display
-syn match   wastInstGeneral   "\%((\s*\)\zs\<[[:alnum:]_]\+\>" contained display
-syn match   wastInstGetSet    "\%((\s*\)\zs\<\%(local\|global\)\.\%(get\|set\)\>" contained display
+syn match   wastInstWithType  "\%((\s*\)\@<=\<\%(i32\|i64\|f32\|f64\|memory\)\.[[:alnum:]_]\+\%(/\%(i32\|i64\|f32\|f64\)\)\=\>\%(\s\+\%(align\|offset\)=\)\=" contained display
+syn match   wastInstGeneral   "\%((\s*\)\@<=\<[[:alnum:]_]\+\>" contained display
+syn match   wastInstGetSet    "\%((\s*\)\@<=\<\%(local\|global\)\.\%(get\|set\)\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#control-instructions
-syn match   wastControlInst   "\%((\s*\)\zs\<\%(block\|end\|loop\|if\|else\|unreachable\|nop\|br\|br_if\|br_table\|return\|call\|call_indirect\)\>" contained display
+syn match   wastControlInst   "\%((\s*\)\@<=\<\%(block\|end\|loop\|if\|else\|unreachable\|nop\|br\|br_if\|br_table\|return\|call\|call_indirect\)\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#parametric-instructions
-syn match   wastParamInst     "\%((\s*\)\zs\<\%(drop\|select\)\>" contained display
+syn match   wastParamInst     "\%((\s*\)\@<=\<\%(drop\|select\)\>" contained display
 
 " Identifiers
 " https://webassembly.github.io/spec/core/text/values.html#text-id
@@ -60,12 +60,12 @@ syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgr
 " Types
 " https://webassembly.github.io/spec/core/text/types.html
 syn keyword wastType          i64 i32 f64 f32 param result anyfunc mut contained
-syn match   wastType          "\%((\_s*\)\zsfunc\%(\_s*[()]\)\@=" display contained
+syn match   wastType          "\%((\_s*\)\@<=func\%(\_s*[()]\)\@=" display contained
 
 " Modules
 " https://webassembly.github.io/spec/core/text/modules.html
 syn keyword wastModule        module type export import table memory global data elem contained
-syn match   wastModule        "\%((\_s*\)\zsfunc\%(\_s\+\$\)\@=" display contained
+syn match   wastModule        "\%((\_s*\)\@<=func\%(\_s\+\$\)\@=" display contained
 
 syn sync maxlines=100
 
