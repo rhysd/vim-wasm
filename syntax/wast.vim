@@ -20,7 +20,7 @@ syn match   wastInstWithType  "\%((\s*\)\@<=\<\%(i32\|i64\|f32\|f64\|memory\)\.[
 syn match   wastInstGeneral   "\%((\s*\)\@<=\<[[:alnum:]_]\+\>" contained display
 syn match   wastInstGetSet    "\%((\s*\)\@<=\<\%(local\|global\)\.\%(get\|set\)\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#control-instructions
-syn match   wastControlInst   "\%((\s*\)\@<=\<\%(block\|end\|loop\|if\|else\|unreachable\|nop\|br\|br_if\|br_table\|return\|call\|call_indirect\)\>" contained display
+syn match   wastControlInst   "\%((\s*\)\@<=\<\%(block\|end\|loop\|if\|then\|else\|unreachable\|nop\|br\|br_if\|br_table\|return\|call\|call_indirect\)\>" contained display
 " https://webassembly.github.io/spec/core/text/instructions.html#parametric-instructions
 syn match   wastParamInst     "\%((\s*\)\@<=\<\%(drop\|select\)\>" contained display
 
