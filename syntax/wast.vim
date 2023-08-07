@@ -62,7 +62,7 @@ syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgr
 
 " Types
 " https://webassembly.github.io/spec/core/text/types.html
-syn keyword wastType          i64 i32 f64 f32 param result anyfunc mut contained
+syn keyword wastType          i64 i32 f64 f32 param result funcref func externref extern mut contained
 syn match   wastType          "\%((\_s*\)\@<=func\%(\_s*[()]\)\@=" display contained
 
 " Modules
