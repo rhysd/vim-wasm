@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:     WebAssembly
 " Maintainer:   rhysd <lin90162@yahoo.co.jp>
-" Last Change:  Jul 29, 2018
+" Last Change:  Aug 7, 2023
 " For bugs, patches and license go to https://github.com/rhysd/vim-wasm
 
 if exists("b:current_syntax")
@@ -62,7 +62,7 @@ syn region  wastList          matchgroup=wastListDelimiter start="(;\@!" matchgr
 
 " Types
 " https://webassembly.github.io/spec/core/text/types.html
-syn keyword wastType          i64 i32 f64 f32 param result funcref func externref extern mut contained
+syn keyword wastType          i64 i32 f64 f32 param result funcref func externref extern mut v128 contained
 syn match   wastType          "\%((\_s*\)\@<=func\%(\_s*[()]\)\@=" display contained
 
 " Modules
