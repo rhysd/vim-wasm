@@ -17,11 +17,11 @@ Unless you want to use HEAD version, you don't need to install this plugin.
 
 Copy `ftdetect`, `ftplugin`, `indent` and `syntax` directories into your `~/.vim` directory or use your
 favorite plugin manager to install.
-This plugin automatically detects `*.wast` files as WebAssembly text format.
+This plugin automatically detects `*.wat` (and `*.wast`) files as WebAssembly text format.
 
-| `set filetype=wast` | `set filetype=lisp` |
+| `set filetype=wat` | `set filetype=lisp` |
 |---------------------|---------------------|
-| <img width="515" alt="wast" src="https://raw.githubusercontent.com/rhysd/ss/master/vim-wast/wast.png"> | <img width="515" alt="wast" src="https://raw.githubusercontent.com/rhysd/ss/master/vim-wast/lisp.png"> |
+| <img width="515" alt="wat" src="https://raw.githubusercontent.com/rhysd/ss/master/vim-wast/wast.png"> | <img width="515" alt="lisp" src="https://raw.githubusercontent.com/rhysd/ss/master/vim-wast/lisp.png"> |
 
 
 ## License
