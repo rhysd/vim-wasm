@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:     WebAssembly
 " Maintainer:   rhysd <lin90162@yahoo.co.jp>
-" Last Change:  Aug 7, 2023
+" Last Change:  Nov 14, 2023
 " For bugs, patches and license go to https://github.com/rhysd/vim-wasm
 
 if exists("b:current_syntax")
