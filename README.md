@@ -1,11 +1,11 @@
 WebAssembly Text Format Syntax Support for Vim
 ==============================================
 
-[vim-wasm][] provides a [WebAssembly][] filetype support; syntax, filetype detection, and indentation.
+[vim-wasm][] provides a [WebAssembly][] filetype `wat` support; syntax, filetype detection, and indentation.
 This filetype plugin defines highlights based on [WebAssembly text format spec][].
 
-Now this plugin is included in [official Vim release][vim runtime dir]. This repository is for development.
-Unless you want to use HEAD version, you don't need to install this plugin.
+Now this plugin is included in the [official Vim runtime files][vim runtime dir]. This repository is for
+development. Unless you want to use HEAD version, you don't need to install this plugin.
 
 [vim-wasm]: https://github.com/rhysd/vim-wasm
 [WebAssembly]: https://webassembly.org/
